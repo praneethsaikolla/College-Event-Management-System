@@ -12,7 +12,7 @@ export const mockEvents: Event[] = [
     maxParticipants: 300,
     currentParticipants: 120,
     organizer: 'Engineering Department',
-    imageUrl: '/src/assets/events/eday.jpg',
+    imageUrl: '/assets/events/eday.jpg',
     requirements: ['Student ID required', 'Pre-registration recommended'],
     tags: ['Engineering', 'Innovation', 'Projects', 'Competitions']
   },
@@ -27,7 +27,7 @@ export const mockEvents: Event[] = [
     maxParticipants: 500,
     currentParticipants: 230,
     organizer: 'Cultural Committee',
-    imageUrl: '/src/assets/events/dasara.jpg',
+    imageUrl: '/assets/events/dasara.jpg',
     requirements: ['Traditional attire encouraged'],
     tags: ['Festival', 'Cultural', 'Celebration', 'Performance']
   },
@@ -42,7 +42,7 @@ export const mockEvents: Event[] = [
     maxParticipants: 600,
     currentParticipants: 310,
     organizer: 'Student Union',
-    imageUrl: '/src/assets/events/deepavali.jpg',
+    imageUrl: '/assets/events/deepavali.jpg',
     requirements: ['Open to all students', 'Bring your ID card'],
     tags: ['Festival', 'Deepavali', 'Cultural', 'Food']
   },
@@ -57,7 +57,7 @@ export const mockEvents: Event[] = [
     maxParticipants: 400,
     currentParticipants: 180,
     organizer: 'College Administration',
-    imageUrl: '/src/assets/events/collegeday.jpg',
+    imageUrl: '/assets/events/collegeday.jpg',
     requirements: ['Student/Staff ID required', 'Formal attire preferred'],
     tags: ['College', 'Celebration', 'Awards', 'Performances']
   },
@@ -72,7 +72,7 @@ export const mockEvents: Event[] = [
     maxParticipants: 350,
     currentParticipants: 150,
     organizer: 'Event Committee',
-    imageUrl: '/src/assets/events/christmas.jpg',
+    imageUrl: '/assets/events/christmas.jpg',
     requirements: ['RSVP required', 'Festive attire encouraged'],
     tags: ['Christmas', 'New Year', 'Festival', 'Celebration']
   }
