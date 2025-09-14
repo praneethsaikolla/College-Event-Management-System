@@ -5,10 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { LogOut, Search, Filter, Calendar, GraduationCap, User } from 'lucide-react';
-import johnDoeImage from '@/assets/profiles/john-doe.jpg';
-import janeSmithImage from '@/assets/profiles/jane-smith.jpg';
-import mikeWilsonImage from '@/assets/profiles/mike-wilson.jpg';
+import { LogOut, Search, Filter, Calendar, User } from 'lucide-react';
+import universityLogo from '@/assets/SVIET.png'; // Your PNG logo
 import { useAuth } from '@/contexts/AuthContext';
 import { mockEvents } from '@/data/mockEvents';
 import EventCard from '@/components/EventCard';
@@ -50,16 +48,6 @@ const Dashboard = () => {
   const upcomingEventsCount = mockEvents.filter(event => new Date(event.date) > new Date()).length;
   const registeredEventsCount = registeredEvents.length;
 
-  const getProfileImage = (username: string) => {
-    if (!user) return '';
-    switch (username) {
-      case 'john.doe': return johnDoeImage;
-      case 'jane.smith': return janeSmithImage;
-      case 'mike.wilson': return mikeWilsonImage;
-      default: return '';
-    }
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-university-light via-background to-university-light">
       {/* Header */}
@@ -67,11 +55,17 @@ const Dashboard = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-full bg-gradient-to-r from-university-navy to-university-gold">
-                <GraduationCap className="w-6 h-6 text-white" />
+              {/* University Logo */}
+              <div className="p-2 rounded-full bg-white/0">
+                <img
+                  src={universityLogo}
+                  alt="University Logo"
+                  className="w-8 h-8 object-contain"
+                />
               </div>
+
               <div>
-                <h1 className="text-xl font-bold text-primary">University Events</h1>
+                <h1 className="text-xl font-bold text-primary">SVIET University Events</h1>
                 <p className="text-sm text-muted-foreground">College Event Management</p>
               </div>
             </div>
@@ -81,7 +75,7 @@ const Dashboard = () => {
                 <Link to="/profile" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
                   <Avatar className="h-8 w-8">
                     <AvatarImage 
-                      src={user?.username ? getProfileImage(user.username) : ''} 
+                      src={user?.profileImage || ''} 
                       alt={`${user?.name} profile picture`}
                       className="object-cover"
                     />
