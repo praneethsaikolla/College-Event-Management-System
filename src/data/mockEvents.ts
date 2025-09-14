@@ -1,0 +1,91 @@
+import { Event } from '../types/Event';
+
+export const mockEvents: Event[] = [
+  {
+    id: '1',
+    title: 'Tech Innovation Summit 2024',
+    description: 'Join us for an exciting day of technology presentations, networking, and innovation showcase featuring industry leaders and cutting-edge research.',
+    date: '2024-03-15',
+    time: '09:00 AM - 05:00 PM',
+    location: 'University Conference Center',
+    category: 'Technology',
+    maxParticipants: 200,
+    currentParticipants: 87,
+    organizer: 'Computer Science Department',
+    imageUrl: '/src/assets/events/tech-summit-poster.jpg',
+    requirements: ['Laptop recommended', 'Student ID required'],
+    tags: ['Technology', 'Innovation', 'Networking', 'Career']
+  },
+  {
+    id: '2',
+    title: 'Annual Cultural Festival',
+    description: 'Experience diverse cultures through music, dance, food, and art. A celebration of our university\'s multicultural community with performances and exhibitions.',
+    date: '2024-03-22',
+    time: '06:00 PM - 11:00 PM',
+    location: 'Main Campus Quad',
+    category: 'Cultural',
+    maxParticipants: 500,
+    currentParticipants: 234,
+    organizer: 'International Student Association',
+    imageUrl: '/src/assets/events/cultural-festival-poster.jpg',
+    requirements: ['Free entry', 'All students welcome'],
+    tags: ['Culture', 'Music', 'Dance', 'Food', 'International']
+  },
+  {
+    id: '3',
+    title: 'Career Fair Spring 2024',
+    description: 'Meet with top employers, explore internship opportunities, and learn about career paths. Over 50 companies will be present to connect with students.',
+    date: '2024-03-28',
+    time: '10:00 AM - 04:00 PM',
+    location: 'Athletic Center Gymnasium',
+    category: 'Career',
+    maxParticipants: 300,
+    currentParticipants: 156,
+    organizer: 'Career Services Office',
+    imageUrl: '/src/assets/events/career-fair-poster.jpg',
+    requirements: ['Resume required', 'Professional attire', 'Bring multiple copies'],
+    tags: ['Career', 'Jobs', 'Internships', 'Networking', 'Professional']
+  },
+  {
+    id: '4',
+    title: 'Environmental Sustainability Workshop',
+    description: 'Learn about sustainable practices, climate change solutions, and how students can make a positive environmental impact on campus and beyond.',
+    date: '2024-04-05',
+    time: '02:00 PM - 05:00 PM',
+    location: 'Science Building Auditorium',
+    category: 'Education',
+    maxParticipants: 100,
+    currentParticipants: 43,
+    organizer: 'Environmental Science Club',
+    requirements: ['Notebook recommended', 'Interest in sustainability'],
+    tags: ['Environment', 'Sustainability', 'Education', 'Climate', 'Workshop']
+  },
+  {
+    id: '5',
+    title: 'Spring Sports Championship',
+    description: 'Cheer for our university teams in the annual spring sports championship. Multiple sports including basketball, soccer, and volleyball finals.',
+    date: '2024-04-12',
+    time: '01:00 PM - 08:00 PM',
+    location: 'University Sports Complex',
+    category: 'Sports',
+    maxParticipants: 1000,
+    currentParticipants: 445,
+    organizer: 'Athletics Department',
+    requirements: ['Student ID for discounted tickets', 'University spirit encouraged'],
+    tags: ['Sports', 'Championship', 'Basketball', 'Soccer', 'University Pride']
+  },
+  {
+    id: '6',
+    title: 'Graduate School Information Session',
+    description: 'Explore graduate school opportunities, application processes, and funding options. Representatives from various graduate programs will be present.',
+    date: '2024-04-18',
+    time: '06:00 PM - 08:00 PM',
+    location: 'Library Conference Room',
+    category: 'Academic',
+    maxParticipants: 80,
+    currentParticipants: 31,
+    organizer: 'Graduate Admissions Office',
+    requirements: ['Junior/Senior standing preferred', 'Transcript recommended'],
+    tags: ['Graduate School', 'Academic', 'Applications', 'Funding', 'Future Planning']
+  }
+];
