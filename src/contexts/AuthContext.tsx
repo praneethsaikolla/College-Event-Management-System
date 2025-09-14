@@ -38,36 +38,6 @@ const mockUsers: { [key: string]: { password: string; user: User } } = {
       gpa: '9.8',
       major: 'Computer Science with AI focus'
     }
-  },
-  'jane.smith': {
-    password: 'college456',
-    user: {
-      id: '2',
-      username: 'jane.smith',
-      name: 'Jane Smith',
-      email: 'jane.smith@university.edu',
-      department: 'Business Administration',
-      year: 'Junior',
-      profilePicture: '/src/assets/profiles/jane-smith.jpg',
-      bio: 'Aspiring business leader with focus on sustainable business practices.',
-      gpa: '3.9',
-      major: 'Business Administration with Marketing minor'
-    }
-  },
-  'mike.wilson': {
-    password: 'campus789',
-    user: {
-      id: '3',
-      username: 'mike.wilson',
-      name: 'Mike Wilson',
-      email: 'mike.wilson@university.edu',
-      department: 'Engineering',
-      year: 'Sophomore',
-      profilePicture: '/src/assets/profiles/mike-wilson.jpg',
-      bio: 'Engineering student passionate about renewable energy and innovation.',
-      gpa: '3.7',
-      major: 'Mechanical Engineering'
-    }
   }
 };
 
