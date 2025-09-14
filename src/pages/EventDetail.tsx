@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, Calendar, Clock, MapPin, Users, CheckCircle, AlertCircle } from 'lucide-react';
-import { mockEvents } from '@/data/mockEvents'; // keep your actual events data
+import { mockEvents } from '@/data/mockEvents';
 import { Event } from '@/types/Event';
 import { useToast } from '@/hooks/use-toast';
 
