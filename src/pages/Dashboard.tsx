@@ -8,7 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { LogOut, Search, Filter, Calendar, User } from 'lucide-react';
 import universityLogo from '@/assets/SVIET.png'; // Your PNG logo
 import { useAuth } from '@/contexts/AuthContext';
-import { mockEvents } from '@/data/mockEvents';
+import { mockEvents as initialMockEvents } from '@/data/mockEvents';
 import EventCard from '@/components/EventCard';
 import { useToast } from '@/hooks/use-toast';
 import { Link } from 'react-router-dom';
@@ -19,6 +19,7 @@ const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [registeredEvents, setRegisteredEvents] = useState<string[]>([]);
+  const [events, setEvents] = useState(initialMockEvents); // Stateful events
 
   const handleLogout = () => {
     logout();
@@ -29,24 +30,42 @@ const Dashboard = () => {
   };
 
   const handleRegister = (eventId: string) => {
+    if (registeredEvents.includes(eventId)) return; // Prevent double registration
+
+    // Add to registered events
     setRegisteredEvents(prev => [...prev, eventId]);
+
+    // Update participants count
+    setEvents(prevEvents =>
+      prevEvents.map(event =>
+        event.id === eventId
+          ? { ...event, currentParticipants: event.currentParticipants + 1 }
+          : event
+      )
+    );
+
+    toast({
+      title: "Registered!",
+      description: "You have successfully registered for this event.",
+    });
   };
 
   const filteredEvents = useMemo(() => {
-    return mockEvents.filter(event => {
-      const matchesSearch = event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           event.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           event.category.toLowerCase().includes(searchTerm.toLowerCase());
-      
+    return events.filter(event => {
+      const matchesSearch =
+        event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        event.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        event.category.toLowerCase().includes(searchTerm.toLowerCase());
+
       const matchesCategory = categoryFilter === 'all' || event.category === categoryFilter;
-      
+
       return matchesSearch && matchesCategory;
     });
-  }, [searchTerm, categoryFilter]);
+  }, [events, searchTerm, categoryFilter]);
 
-  const upcomingEventsCount = filteredEvents.length; // Updated to reflect filtered events
+  const upcomingEventsCount = filteredEvents.length;
   const registeredEventsCount = registeredEvents.length;
-  const categories = [...new Set(mockEvents.map(event => event.category))];
+  const categories = [...new Set(initialMockEvents.map(event => event.category))];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-university-light via-background to-university-light">
@@ -55,7 +74,6 @@ const Dashboard = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              {/* University Logo */}
               <div className="p-2 rounded-full bg-white/0">
                 <img
                   src={universityLogo}
@@ -63,7 +81,6 @@ const Dashboard = () => {
                   className="w-8 h-8 object-contain"
                 />
               </div>
-
               <div>
                 <h1 className="text-xl font-bold text-primary">SVIET Events</h1>
                 <p className="text-sm text-muted-foreground">College Event Management</p>
@@ -74,8 +91,8 @@ const Dashboard = () => {
               <div className="flex items-center gap-3 cursor-pointer">
                 <Link to="/profile" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
                   <Avatar className="h-8 w-8">
-                    <AvatarImage 
-                      src={user?.profileImage || ''} 
+                    <AvatarImage
+                      src={user?.profileImage || ''}
                       alt={`${user?.name} profile picture`}
                       className="object-cover"
                     />
