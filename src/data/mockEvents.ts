@@ -27,7 +27,7 @@ export const mockEvents: Event[] = [
     maxParticipants: 500,
     currentParticipants: 230,
     organizer: 'Cultural Committee',
-    imageUrl: '/assets/events/dasara.jpg',
+    imageUrl: '/src/assets/events/dasara.jpg',
     requirements: ['Traditional attire encouraged'],
     tags: ['Festival', 'Cultural', 'Celebration', 'Performance']
   },
