@@ -22,18 +22,20 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// Mock users data (in a real app, this would come from users.json via API)
+// ✅ Mock users data
+// Make sure profile pictures are inside: public/assets/profiles/
 const mockUsers: { [key: string]: { password: string; user: User } } = {
   'aasritha.adapa': {
     password: 'Aasritha Adapa',
     user: {
       id: '1',
-      username: 'aasrith.aadapa',
+      username: 'aasritha.adapa',
       name: 'Aasritha Adapa',
       email: 'aasrithaadapa@gmail.com',
       department: 'Computer Science',
       year: '4th Year',
-      profilePicture: '/src/aasritha.jpg',
+      // ✅ Profile pic from public folder
+      profilePicture: '/assets/profiles/aasritha.jpg',
       bio: 'Passionate computer science student interested in AI and software development.',
       gpa: '9.8',
       major: 'Computer Science with AI focus'
