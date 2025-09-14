@@ -65,7 +65,7 @@ const Dashboard = () => {
               </div>
 
               <div>
-                <h1 className="text-xl font-bold text-primary">SVIET University Events</h1>
+                <h1 className="text-xl font-bold text-primary">SVIET Events</h1>
                 <p className="text-sm text-muted-foreground">College Event Management</p>
               </div>
             </div>
