@@ -70,7 +70,7 @@ export const mockEvents: Event[] = [
   },
   {
     id: '5',
-    title: 'New Year 2025',
+    title: 'New Year 2026',
     description: 'Ring in the New Year with a grand celebration featuring live music, dance, games, and a midnight countdown.',
     date: '2025-12-31',
     time: '08:00 PM - 01:00 AM',
