@@ -141,15 +141,6 @@ const Login = () => {
                 )}
               </Button>
             </form>
-
-            <div className="mt-6 p-4 bg-muted/50 rounded-lg">
-              <p className="text-sm font-medium text-center mb-2">Demo Accounts:</p>
-              <div className="text-xs text-muted-foreground space-y-1">
-                <div><strong>john.doe</strong> / student123</div>
-                <div><strong>jane.smith</strong> / college456</div>
-                <div><strong>mike.wilson</strong> / campus789</div>
-              </div>
-            </div>
           </CardContent>
         </Card>
       </div>
