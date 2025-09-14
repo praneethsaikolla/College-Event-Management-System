@@ -44,9 +44,9 @@ const Dashboard = () => {
     });
   }, [searchTerm, categoryFilter]);
 
-  const categories = [...new Set(mockEvents.map(event => event.category))];
-  const upcomingEventsCount = mockEvents.filter(event => new Date(event.date) > new Date()).length;
+  const upcomingEventsCount = filteredEvents.length; // Updated to reflect filtered events
   const registeredEventsCount = registeredEvents.length;
+  const categories = [...new Set(mockEvents.map(event => event.category))];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-university-light via-background to-university-light">
