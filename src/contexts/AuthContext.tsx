@@ -25,12 +25,12 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 // Mock users data (in a real app, this would come from users.json via API)
 const mockUsers: { [key: string]: { password: string; user: User } } = {
   'john.doe': {
-    password: 'student123',
+    password: 'Aasritha Adapa',
     user: {
       id: '1',
       username: 'aasrithaadapa',
       name: 'Aasritha Adapa',
-      email: 'john.doe@university.edu',
+      email: 'aasritha.adapa@university.edu',
       department: 'Computer Science',
       year: 'Senior',
       profilePicture: '/src/',
