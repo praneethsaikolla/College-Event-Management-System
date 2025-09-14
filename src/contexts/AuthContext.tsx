@@ -28,14 +28,14 @@ const mockUsers: { [key: string]: { password: string; user: User } } = {
     password: 'student123',
     user: {
       id: '1',
-      username: 'john.doe',
-      name: 'John Doe',
+      username: 'aasrithaadapa',
+      name: 'Aasritha Adapa',
       email: 'john.doe@university.edu',
       department: 'Computer Science',
       year: 'Senior',
-      profilePicture: '/src/assets/profiles/john-doe.jpg',
+      profilePicture: '/src/',
       bio: 'Passionate computer science student interested in AI and software development.',
-      gpa: '3.8',
+      gpa: '9.8',
       major: 'Computer Science with AI focus'
     }
   },
