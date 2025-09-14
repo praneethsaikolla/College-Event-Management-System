@@ -30,10 +30,10 @@ const mockUsers: { [key: string]: { password: string; user: User } } = {
       id: '1',
       username: 'aasrith.aadapa',
       name: 'Aasritha Adapa',
-      email: 'aasritha.adapa@university.edu',
+      email: 'aasrithaadapa@gmail.com',
       department: 'Computer Science',
-      year: 'Senior',
-      profilePicture: '/src/',
+      year: '4th Year',
+      profilePicture: '/src/aasritha.jpg',
       bio: 'Passionate computer science student interested in AI and software development.',
       gpa: '9.8',
       major: 'Computer Science with AI focus'
