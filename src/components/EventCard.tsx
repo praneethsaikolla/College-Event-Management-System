@@ -7,9 +7,6 @@ import { Event } from '@/types/Event';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
 import { Link } from 'react-router-dom';
-import techSummitPoster from '@/assets/events/tech-summit-poster.jpg';
-import culturalFestivalPoster from '@/assets/events/cultural-festival-poster.jpg';
-import careerFairPoster from '@/assets/events/career-fair-poster.jpg';
 
 interface EventCardProps {
   event: Event;
@@ -26,10 +23,7 @@ const EventCard: React.FC<EventCardProps> = ({ event, isRegistered = false, onRe
     if (!user || !onRegister) return;
     
     setIsRegistering(true);
-    
-    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
     onRegister(event.id);
     
     toast({
@@ -40,25 +34,16 @@ const EventCard: React.FC<EventCardProps> = ({ event, isRegistered = false, onRe
     setIsRegistering(false);
   };
 
-  const getEventImage = (eventId: string) => {
-    switch (eventId) {
-      case '1': return techSummitPoster;
-      case '2': return culturalFestivalPoster;
-      case '3': return careerFairPoster;
-      default: return '';
-    }
-  };
-
   const availableSpots = event.maxParticipants - event.currentParticipants;
   const isFullyBooked = availableSpots <= 0;
 
   return (
     <Card className="h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden">
       {/* Event Image */}
-      {getEventImage(event.id) && (
+      {event.imageUrl && (
         <div className="aspect-video w-full overflow-hidden">
           <img 
-            src={getEventImage(event.id)} 
+            src={event.imageUrl} 
             alt={`${event.title} poster`}
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
           />
