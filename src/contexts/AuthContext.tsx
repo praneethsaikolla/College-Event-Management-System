@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import aasrithaPic from '@/assets/profiles/aasritha.jpg'; // ✅ Import from src/assets
 
 interface User {
   id: string;
@@ -34,7 +33,7 @@ const mockUsers: { [key: string]: { password: string; user: User } } = {
       email: 'aasrithaadapa@gmail.com',
       department: 'Computer Science',
       year: '4th Year',
-      profilePicture: aasrithaPic, // ✅ Use imported image
+      profilePicture: 'src/assets/profiles/aasritha.jpg', // ✅ Use imported image
       bio: 'Passionate computer science student interested in AI and software development.',
       gpa: '9.8',
       major: 'Computer Science with AI focus'
