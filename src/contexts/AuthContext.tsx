@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-// ✅ Import profile pics from src/assets
+// ✅ Import profile pictures from src/assets
 import aasrithaPic from '../assets/profiles/aasritha.jpg';
 
 interface User {
@@ -40,9 +40,9 @@ const mockUsers: { [key: string]: { password: string; user: User } } = {
       profilePicture: aasrithaPic,
       bio: 'Passionate computer science student interested in AI and software development.',
       gpa: '9.8',
-      major: 'Computer Science with AI focus'
-    }
-  }
+      major: 'Computer Science with AI focus',
+    },
+  },
 };
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -50,6 +50,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
+    // ✅ Load from localStorage on app start
     const storedUser = localStorage.getItem('currentUser');
     if (storedUser) {
       const userData = JSON.parse(storedUser);
@@ -59,8 +60,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const login = async (username: string, password: string): Promise<boolean> => {
+    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
     const userRecord = mockUsers[username];
     if (userRecord && userRecord.password === password) {
       setUser(userRecord.user);
