@@ -41,7 +41,7 @@ const Profile = () => {
                 <div className="flex justify-center mb-4">
                   <Avatar className="w-32 h-32">
                     <AvatarImage 
-                      src={user.profilePicture || ''}  {/* ✅ fixed */}
+                      src={user.profilePicture || ''} 
                       alt={`${user.name} profile picture`}
                       className="object-cover"
                     />
