@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import aasrithaPic from '@/assets/profiles/aasritha.jpg'; // ✅ Import image from src/assets
+import aasrithaPic from '@/assets/profiles/aasritha.jpg'; // ✅ Import from src/assets
 
 interface User {
   id: string;
@@ -34,12 +34,12 @@ const mockUsers: { [key: string]: { password: string; user: User } } = {
       email: 'aasrithaadapa@gmail.com',
       department: 'Computer Science',
       year: '4th Year',
-      profilePicture: aasrithaPic, // ✅ use imported image
+      profilePicture: aasrithaPic, // ✅ Use imported image
       bio: 'Passionate computer science student interested in AI and software development.',
       gpa: '9.8',
-      major: 'Computer Science with AI focus',
-    },
-  },
+      major: 'Computer Science with AI focus'
+    }
+  }
 };
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -47,7 +47,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    // Check if user is stored in localStorage on app load
     const storedUser = localStorage.getItem('currentUser');
     if (storedUser) {
       const userData = JSON.parse(storedUser);
@@ -57,9 +56,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const login = async (username: string, password: string): Promise<boolean> => {
-    // Simulate API call delay
     await new Promise(resolve => setTimeout(resolve, 1000));
-
     const userRecord = mockUsers[username];
     if (userRecord && userRecord.password === password) {
       setUser(userRecord.user);
@@ -85,8 +82,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
+  if (!context) throw new Error('useAuth must be used within an AuthProvider');
   return context;
 };
