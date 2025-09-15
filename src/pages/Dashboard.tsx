@@ -24,18 +24,16 @@ const Dashboard = () => {
   const handleLogout = () => {
     logout();
     toast({
-      title: "Logged Out",
-      description: "You have been successfully logged out",
+      title: 'Logged Out',
+      description: 'You have been successfully logged out',
     });
   };
 
   const handleRegister = (eventId: string) => {
     if (registeredEvents.includes(eventId)) return; // Prevent double registration
 
-    // Add to registered events
     setRegisteredEvents(prev => [...prev, eventId]);
 
-    // Update participants count
     setEvents(prevEvents =>
       prevEvents.map(event =>
         event.id === eventId
@@ -45,8 +43,8 @@ const Dashboard = () => {
     );
 
     toast({
-      title: "Registered!",
-      description: "You have successfully registered for this event.",
+      title: 'Registered!',
+      description: 'You have successfully registered for this event.',
     });
   };
 
@@ -89,10 +87,13 @@ const Dashboard = () => {
 
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-3 cursor-pointer">
-                <Link to="/profile" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                <Link
+                  to="/profile"
+                  className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+                >
                   <Avatar className="h-8 w-8">
                     <AvatarImage
-                      src={user?.profileImage || ''}
+                      src={user?.profilePicture || ''} // ✅ FIXED
                       alt={`${user?.name} profile picture`}
                       className="object-cover"
                     />
@@ -189,7 +190,7 @@ const Dashboard = () => {
                 <Input
                   placeholder="Search events by title, description, or category..."
                   value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onChange={e => setSearchTerm(e.target.value)}
                   className="h-10"
                 />
               </div>
@@ -230,8 +231,8 @@ const Dashboard = () => {
                 <Calendar className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
                 <h3 className="text-lg font-medium mb-2">No events found</h3>
                 <p className="text-muted-foreground">
-                  {searchTerm || categoryFilter !== 'all' 
-                    ? 'Try adjusting your search criteria' 
+                  {searchTerm || categoryFilter !== 'all'
+                    ? 'Try adjusting your search criteria'
                     : 'Check back later for new events'}
                 </p>
               </CardContent>
