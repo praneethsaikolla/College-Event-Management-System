@@ -9,7 +9,7 @@ const Profile = () => {
   const { user } = useAuth();
 
   if (!user) {
-    return null;
+    return null; // Or a loading / redirect
   }
 
   return (
@@ -40,8 +40,8 @@ const Profile = () => {
               <CardHeader className="text-center">
                 <div className="flex justify-center mb-4">
                   <Avatar className="w-32 h-32">
-                    <AvatarImage 
-                      src={user.profilePicture || ''} 
+                    <AvatarImage
+                      src={user.profilePicture} // ✅ Uses imported profile picture
                       alt={`${user.name} profile picture`}
                       className="object-cover"
                     />
